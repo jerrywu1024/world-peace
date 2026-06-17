@@ -1,0 +1,9 @@
+# 广告、跟踪、骚扰域名拦截规则
+# 示例：
+# DOMAIN-SUFFIX,ads.example.com
+# DOMAIN-KEYWORD,tracking
+
+DOMAIN-SUFFIX,doubleclick.net
+DOMAIN-SUFFIX,googleadservices.com
+DOMAIN-SUFFIX,googlesyndication.com
+

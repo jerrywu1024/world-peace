@@ -1,0 +1,9 @@
+# 强制直连规则
+# 示例：
+# DOMAIN-SUFFIX,example.cn
+# DOMAIN,example.com
+# IP-CIDR,192.168.1.0/24,no-resolve
+
+DOMAIN-SUFFIX,local
+DOMAIN-SUFFIX,lan
+
