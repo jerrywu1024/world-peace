@@ -2,9 +2,9 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-TEMPLATE="$ROOT_DIR/config/World Peace.conf.template"
+TEMPLATE="$ROOT_DIR/config/world-peace.conf.template"
 OUTPUT_DIR="$ROOT_DIR/dist"
-OUTPUT="$OUTPUT_DIR/World Peace.conf"
+OUTPUT="$OUTPUT_DIR/world-peace.conf"
 
 if [[ -z "${RAW_BASE_URL:-}" ]]; then
   echo "请先设置 RAW_BASE_URL，例如："

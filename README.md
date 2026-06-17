@@ -4,7 +4,7 @@
 
 ## 文件结构
 
-- `config/World Peace.conf.template`：主配置模板
+- `config/world-peace.conf.template`：主配置模板
 - `rules/direct.list`：强制直连规则
 - `rules/proxy.list`：强制代理规则
 - `rules/reject.list`：广告、跟踪、骚扰域名拦截规则
@@ -22,13 +22,13 @@
 发布地址通常是：
 
 ```text
-https://<你的 GitHub 用户名>.github.io/<仓库名>/World%20Peace.conf
+https://<你的 GitHub 用户名>.github.io/<仓库名>/world-peace.conf
 ```
 
 例如：
 
 ```text
-https://jerrywu1024.github.io/world-peace/World%20Peace.conf
+https://jerrywu1024.github.io/world-peace/world-peace.conf
 ```
 
 ## 本地预览
@@ -42,13 +42,13 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/world-peace/main" ./
 本地生成后的配置在：
 
 ```text
-dist/World Peace.conf
+dist/world-peace.conf
 ```
 
 当前可直接使用的 Raw 订阅链接：
 
 ```text
-https://raw.githubusercontent.com/jerrywu1024/world-peace/main/dist/World%20Peace.conf
+https://raw.githubusercontent.com/jerrywu1024/world-peace/main/dist/world-peace.conf
 ```
 
 ## 日常维护
