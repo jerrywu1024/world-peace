@@ -2,34 +2,6 @@
 
 这个仓库用于维护并发布自己的 Shadowrocket 配置和规则。当前结构参考了 [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 项目中的 [懒人配置（含策略组）](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever#%E6%87%92%E4%BA%BA%E9%85%8D%E7%BD%AE-%E5%90%AB%E7%AD%96%E7%95%A5%E7%BB%84) 思路，并在此基础上把个人规则拆成独立文件，方便后续长期维护。
 
-## 文件结构
-
-- `config/world-peace.conf.template`：主配置模板
-- `rules/direct.list`：强制直连规则
-- `rules/proxy.list`：强制代理规则
-- `rules/reject.list`：广告、跟踪、骚扰域名拦截规则
-- `rules/ai.list`：AI 服务补充规则
-- `scripts/build.sh`：生成可发布配置
-- `scripts/validate-shadowrocket.sh`：基础格式检查
-
-## 第一次发布
-
-1. 在 GitHub 新建一个公开仓库，例如 `world-peace`。
-2. 把本文件夹推送到该仓库。
-3. 推送后，在 GitHub 仓库的 `Settings -> Pages` 里选择 `GitHub Actions`。
-4. 每次推送到 `main` 分支后，GitHub 会自动生成并发布配置。
-
-发布地址通常是：
-
-```text
-https://<你的 GitHub 用户名>.github.io/<仓库名>/world-peace.conf
-```
-
-例如：
-
-```text
-https://jerrywu1024.github.io/world-peace/world-peace.conf
-```
 
 ## 本地预览
 
@@ -79,7 +51,8 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/world-peace/main" ./
 - `Steam` 已从 `Gaming Platform` 单独拆分；`SteamCN` 保持直连。
 - 原中文策略组名已统一改为 `Apple`、`Bilibili`、`Gaming Platform`。
 - 规则顺序调整为：局域网、个人拦截/直连/AI/代理、常用服务、中国直连、海外代理兜底、`FINAL,PROXY`。
-- 国家节点组保持 `url-test`，统一使用 `https://www.gstatic.com/generate_204` 测速，`interval=600`、`tolerance=80`、`timeout=5`。
+- 国家节点组保持 `url-test`，统一使用 `https://www.gstatic.com/generate_204` 测速，`interval=600`、`tolerance=50`、`timeout=5`。
+- direct.list增加bytedance、feishu、larksuite等直连域名，保证国内服务正常
 
 主配置仍然保持个人规则优先：本地拦截、直连、代理、AI 补充规则会先于公开规则集匹配。
 
