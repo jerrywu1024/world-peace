@@ -32,7 +32,7 @@ check_rule_file() {
   ' "$ROOT_DIR/$file" || FAILED=1
 }
 
-require_file "config/lazy_group_custom.conf.template"
+require_file "config/World Peace.conf.template"
 require_file "rules/direct.list"
 require_file "rules/proxy.list"
 require_file "rules/reject.list"
@@ -41,11 +41,11 @@ require_file "scripts/build.sh"
 
 if [[ "$FAILED" -eq 0 ]]; then
   for section in "[General]" "[Proxy Group]" "[Rule]" "[Host]" "[URL Rewrite]" "[MITM]"; do
-    require_section "config/lazy_group_custom.conf.template" "$section"
+    require_section "config/World Peace.conf.template" "$section"
   done
 
-  if ! grep -Fq "{{RAW_BASE_URL}}" "$ROOT_DIR/config/lazy_group_custom.conf.template"; then
-    echo "config/lazy_group_custom.conf.template 缺少 {{RAW_BASE_URL}} 占位符" >&2
+  if ! grep -Fq "{{RAW_BASE_URL}}" "$ROOT_DIR/config/World Peace.conf.template"; then
+    echo "config/World Peace.conf.template 缺少 {{RAW_BASE_URL}} 占位符" >&2
     FAILED=1
   fi
 
@@ -60,4 +60,3 @@ if [[ "$FAILED" -ne 0 ]]; then
 fi
 
 echo "Shadowrocket 配置检查通过"
-

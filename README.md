@@ -4,7 +4,7 @@
 
 ## 文件结构
 
-- `config/lazy_group_custom.conf.template`：主配置模板
+- `config/World Peace.conf.template`：主配置模板
 - `rules/direct.list`：强制直连规则
 - `rules/proxy.list`：强制代理规则
 - `rules/reject.list`：广告、跟踪、骚扰域名拦截规则
@@ -22,13 +22,13 @@
 发布地址通常是：
 
 ```text
-https://<你的 GitHub 用户名>.github.io/<仓库名>/lazy_group.conf
+https://<你的 GitHub 用户名>.github.io/<仓库名>/World%20Peace.conf
 ```
 
 例如：
 
 ```text
-https://jerrywu1024.github.io/shadowrocket-rules/lazy_group.conf
+https://jerrywu1024.github.io/shadowrocket-rules/World%20Peace.conf
 ```
 
 ## 本地预览
@@ -42,13 +42,13 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/m
 本地生成后的配置在：
 
 ```text
-dist/lazy_group.conf
+dist/World Peace.conf
 ```
 
 当前可直接使用的 Raw 订阅链接：
 
 ```text
-https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main/dist/lazy_group.conf
+https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main/dist/World%20Peace.conf
 ```
 
 ## 日常维护
@@ -69,19 +69,18 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/m
 
 然后提交并推送到 GitHub。Shadowrocket 里更新配置即可。
 
-## 规则顺序
+## 本版策略调整
 
-主配置里的匹配顺序是：
+本配置在 Johnshall 懒人配置的基础上，按个人 OpenClash 分流习惯调整了策略组顺序：
 
-1. 本地拦截规则
-2. 本地直连规则
-3. 本地代理规则
-4. 本地 AI 补充规则
-5. 常用公开规则集
-6. 中国大陆 IP 直连
-7. 其他全部走代理
+- 非流媒体和泛海外服务默认日本优先，例如 `AI`、`Google`、`YouTube`、`Telegram`、`Twitter`、`Facebook`、`GitHub`、`Microsoft`、`OneDrive`、`PayPal`、`Amazon`、`TikTok`。
+- 流媒体单独按解锁偏好排序，`Netflix`、`Disney+`、`HBO Max` 优先使用香港节点，其后再按日本、美国、新加坡、台湾、韩国兜底。
+- 通用默认组 `PROXY` 也采用日本优先，并把 `自动选择` 放在国家节点之后、`DIRECT` 之前。
+- 业务策略组不把 `PROXY` 放在第一位，优先列出明确地区节点，`PROXY` 只作为兜底。
+- `Max` 统一命名为 `HBO Max`，对应规则也统一指向 `HBO Max`。
+- 国家节点组保持 `url-test`，统一使用 `https://www.gstatic.com/generate_204` 测速，`interval=600`、`tolerance=80`、`timeout=5`。
 
-这意味着你自己的规则优先级高于公开规则集。
+主配置仍然保持个人规则优先：本地拦截、直连、代理、AI 补充规则会先于公开规则集匹配。
 
 ## 致谢
 
