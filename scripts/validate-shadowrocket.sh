@@ -40,7 +40,7 @@ require_file "rules/ai.list"
 require_file "scripts/build.sh"
 
 if [[ "$FAILED" -eq 0 ]]; then
-  for section in "[General]" "[Proxy Group]" "[Rule]" "[Host]" "[URL Rewrite]" "[MITM]"; do
+  for section in "[General]" "[Proxy Group]" "[Rule]" "[Host]" ; do
     require_section "config/world-peace.conf.template" "$section"
   done
 
