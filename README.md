@@ -1,4 +1,4 @@
-# Shadowrocket 自定义规则
+# world-peace
 
 这个仓库用于维护并发布自己的 Shadowrocket 配置和规则。当前结构参考了 [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 项目中的 [懒人配置（含策略组）](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever#%E6%87%92%E4%BA%BA%E9%85%8D%E7%BD%AE-%E5%90%AB%E7%AD%96%E7%95%A5%E7%BB%84) 思路，并在此基础上把个人规则拆成独立文件，方便后续长期维护。
 
@@ -14,7 +14,7 @@
 
 ## 第一次发布
 
-1. 在 GitHub 新建一个公开仓库，例如 `shadowrocket-rules`。
+1. 在 GitHub 新建一个公开仓库，例如 `world-peace`。
 2. 把本文件夹推送到该仓库。
 3. 推送后，在 GitHub 仓库的 `Settings -> Pages` 里选择 `GitHub Actions`。
 4. 每次推送到 `main` 分支后，GitHub 会自动生成并发布配置。
@@ -28,7 +28,7 @@ https://<你的 GitHub 用户名>.github.io/<仓库名>/World%20Peace.conf
 例如：
 
 ```text
-https://jerrywu1024.github.io/shadowrocket-rules/World%20Peace.conf
+https://jerrywu1024.github.io/world-peace/World%20Peace.conf
 ```
 
 ## 本地预览
@@ -36,7 +36,7 @@ https://jerrywu1024.github.io/shadowrocket-rules/World%20Peace.conf
 如果想先在本地生成一份配置：
 
 ```bash
-RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main" ./scripts/build.sh
+RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/world-peace/main" ./scripts/build.sh
 ```
 
 本地生成后的配置在：
@@ -48,7 +48,7 @@ dist/World Peace.conf
 当前可直接使用的 Raw 订阅链接：
 
 ```text
-https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main/dist/World%20Peace.conf
+https://raw.githubusercontent.com/jerrywu1024/world-peace/main/dist/World%20Peace.conf
 ```
 
 ## 日常维护
@@ -64,7 +64,7 @@ https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main/dist/World
 
 ```bash
 ./scripts/validate-shadowrocket.sh
-RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main" ./scripts/build.sh
+RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/world-peace/main" ./scripts/build.sh
 ```
 
 然后提交并推送到 GitHub。Shadowrocket 里更新配置即可。
@@ -73,11 +73,12 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/m
 
 本配置在 Johnshall 懒人配置的基础上，按个人 OpenClash 分流习惯调整了策略组顺序：
 
-- 非流媒体和泛海外服务默认日本优先，例如 `AI`、`Google`、`YouTube`、`Telegram`、`Twitter`、`Facebook`、`GitHub`、`Microsoft`、`OneDrive`、`PayPal`、`Amazon`、`TikTok`。
-- 流媒体单独按解锁偏好排序，`Netflix`、`Disney+`、`HBO Max` 优先使用香港节点，其后再按日本、美国、新加坡、台湾、韩国兜底。
-- 通用默认组 `PROXY` 也采用日本优先，并把 `自动选择` 放在国家节点之后、`DIRECT` 之前。
-- 业务策略组不把 `PROXY` 放在第一位，优先列出明确地区节点，`PROXY` 只作为兜底。
-- `Max` 统一命名为 `HBO Max`，对应规则也统一指向 `HBO Max`。
+- 非流媒体和泛海外服务默认日本优先，并按日本、美国、新加坡、香港、台湾、韩国、`PROXY` 兜底。
+- 流媒体单独按解锁偏好排序，`Netflix`、`Disney+`、`HBO Max` 按香港、新加坡、日本、台湾、韩国、美国、`PROXY` 选择。
+- `Apple`、`Bilibili`、`Gaming Platform` 默认直连优先，其后再兜底到 `PROXY` 和国家节点。
+- `Steam` 已从 `Gaming Platform` 单独拆分；`SteamCN` 保持直连。
+- 原中文策略组名已统一改为 `Apple`、`Bilibili`、`Gaming Platform`。
+- 规则顺序调整为：局域网、个人拦截/直连/AI/代理、常用服务、中国直连、海外代理兜底、`FINAL,PROXY`。
 - 国家节点组保持 `url-test`，统一使用 `https://www.gstatic.com/generate_204` 测速，`interval=600`、`tolerance=80`、`timeout=5`。
 
 主配置仍然保持个人规则优先：本地拦截、直连、代理、AI 补充规则会先于公开规则集匹配。
