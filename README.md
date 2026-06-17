@@ -1,6 +1,6 @@
 # Shadowrocket 自定义规则
 
-这个仓库用于维护并发布自己的 Shadowrocket 配置和规则。当前结构参考了 `lazy_group.conf` 的常见分组方式，但把个人规则拆成独立文件，方便后续长期维护。
+这个仓库用于维护并发布自己的 Shadowrocket 配置和规则。当前结构参考了 [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 项目中的 [懒人配置（含策略组）](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever#%E6%87%92%E4%BA%BA%E9%85%8D%E7%BD%AE-%E5%90%AB%E7%AD%96%E7%95%A5%E7%BB%84) 思路，并在此基础上把个人规则拆成独立文件，方便后续长期维护。
 
 ## 文件结构
 
@@ -82,3 +82,7 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/m
 7. 其他全部走代理
 
 这意味着你自己的规则优先级高于公开规则集。
+
+## 致谢
+
+感谢 [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 长期维护 Shadowrocket 去广告与分流规则。本仓库的主配置和策略组组织方式参考了该项目的 [懒人配置（含策略组）](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever#%E6%87%92%E4%BA%BA%E9%85%8D%E7%BD%AE-%E5%90%AB%E7%AD%96%E7%95%A5%E7%BB%84)，并根据个人使用习惯做了拆分和调整。
