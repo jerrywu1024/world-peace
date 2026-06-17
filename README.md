@@ -28,15 +28,15 @@ https://<你的 GitHub 用户名>.github.io/<仓库名>/lazy_group.conf
 例如：
 
 ```text
-https://jerry.github.io/shadowrocket-rules/lazy_group.conf
+https://jerrywu1024.github.io/shadowrocket-rules/lazy_group.conf
 ```
 
 ## 本地预览
 
-如果想先在本地生成一份配置，把 `jerry` 和仓库名换成你自己的：
+如果想先在本地生成一份配置：
 
 ```bash
-RAW_BASE_URL="https://raw.githubusercontent.com/jerry/shadowrocket-rules/main" ./scripts/build.sh
+RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main" ./scripts/build.sh
 ```
 
 本地生成后的配置在：
@@ -45,10 +45,10 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerry/shadowrocket-rules/main" .
 dist/lazy_group.conf
 ```
 
-也可以选择把生成文件手动发布到 Raw 链接：
+当前可直接使用的 Raw 订阅链接：
 
 ```text
-https://raw.githubusercontent.com/jerry/shadowrocket-rules/main/dist/lazy_group.conf
+https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main/dist/lazy_group.conf
 ```
 
 ## 日常维护
@@ -64,7 +64,7 @@ https://raw.githubusercontent.com/jerry/shadowrocket-rules/main/dist/lazy_group.
 
 ```bash
 ./scripts/validate-shadowrocket.sh
-RAW_BASE_URL="https://raw.githubusercontent.com/jerry/shadowrocket-rules/main" ./scripts/build.sh
+RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/shadowrocket-rules/main" ./scripts/build.sh
 ```
 
 然后提交并推送到 GitHub。Shadowrocket 里更新配置即可。
