@@ -53,6 +53,8 @@ RAW_BASE_URL="https://raw.githubusercontent.com/jerrywu1024/world-peace/main" ./
 - 规则顺序调整为：局域网、个人拦截/直连/AI/代理、常用服务、中国直连、海外代理兜底、`FINAL,PROXY`。
 - 国家节点组保持 `url-test`，统一使用 `https://www.gstatic.com/generate_204` 测速，`interval=600`、`tolerance=50`、`timeout=5`。
 - direct.list增加bytedance、feishu、larksuite等直连域名，保证国内服务正常
+- 中国直连、海外代理规则、`FINAL,DIRECT` 兜底，未命中现有规则的流量默认直连，优先保障国内应用、支付及二维码链接的稳定性。
+- GitHub 核心域名使用主配置内置规则代理，保障远程规则集能够更新。
 
 主配置仍然保持个人规则优先：本地拦截、直连、代理、AI 补充规则会先于公开规则集匹配。
 
